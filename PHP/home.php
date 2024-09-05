@@ -176,7 +176,7 @@ if (isset($_POST['autor']) && isset($_POST['titulo']) && isset($_POST['descricao
             <input type="text" name="titulo" placeholder="Title" id="titulo-input" autocomplete="off" required>
             <textarea type="text" name="descricao" placeholder="Description" id="descricao" autocomplete="off" required></textarea>
             <input type="text" name="ano" placeholder="Year of publication" id="ano-input" minlength="4" maxlength="4" oninput="onlyNumbers(this)" autocomplete="off" required>
-            <input type="text" name="genero" placeholder="Genre" id="genero-input" oninput="onlyLetters(this)" autocomplete="off" required>
+            <input type="text" name="genero" placeholder="Book genre" id="genero-input" oninput="onlyLetters(this)" autocomplete="off" required>
             <button type="submit" id='submit'>Add</button>
         </form>
     </section>
