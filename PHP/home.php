@@ -178,7 +178,7 @@ if (isset($_POST['autor']) && isset($_POST['titulo']) && isset($_POST['descricao
         }
 
         function onlyLetters(input) {
-            input.value = input.value.replace(/[^a-zA-Z ,_-]/g, '');
+            input.value = input.value.replace(/[^a-zA-ZÀ-ÖØ-öø-ÿ ,_-]/g, '');
         }
     </script>
 </body>
