@@ -57,6 +57,10 @@ if ($check_query) {
             background: url(../ASSETS/userDefault.png) center/contain no-repeat;
         }
 
+        main{
+            min-height: calc(100lvh - 4rem - 2px);
+        }
+
         section {
             width: calc(100% - 24rem);
             padding: 2rem 12rem;
@@ -92,7 +96,7 @@ if ($check_query) {
             justify-content: space-between;
         }
 
-        footer{
+        footer {
             width: calc(100% - 24rem);
             height: 4rem;
             padding: 0rem 12rem;
@@ -103,7 +107,9 @@ if ($check_query) {
         }
 
         @media screen and (max-width: 1025px) {
-            header, footer{
+
+            header,
+            footer {
                 width: calc(100% - 4rem);
                 padding: 0rem 2rem;
             }
@@ -123,10 +129,11 @@ if ($check_query) {
         <a href="user.php" id="user"></a>
     </header>
 
-    <section>
-        <?php
-        foreach ($livros as $livro) {
-            echo "<a href='livro.php?id={$livro['livro_id']}' class='livro'>
+    <main>
+        <section>
+            <?php
+            foreach ($livros as $livro) {
+                echo "<a href='livro.php?id={$livro['livro_id']}' class='livro'>
                     <h2>{$livro['titulo']}</h2>
                     <p class='autor'>
                         <em>{$livro['autor']}</em>
@@ -136,9 +143,10 @@ if ($check_query) {
                         <p class='genero'>{$livro['genero']}</p>
                     </div>
                 </a>";
-        }
-        ?>
-    </section>
+            }
+            ?>
+        </section>
+    </main>
 
     <footer>
         <h1>EL</h1>
