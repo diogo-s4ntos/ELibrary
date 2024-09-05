@@ -37,7 +37,7 @@ if (isset($_POST['Username']) || isset($_POST['Password'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EB - Login</title>
+    <title>EL - Login</title>
     <link rel="icon" href="../ASSETS/book.png">
 
     <!-- Style -->
@@ -132,7 +132,7 @@ if (isset($_POST['Username']) || isset($_POST['Password'])) {
 </head>
 <body>
     <section>
-        <h1>EBiblioteca - Login</h1>
+        <h1>ELibrary - Login</h1>
         <form action="" method="POST">
             <input type="text" name="Username" placeholder="Username">
             <input type="password" name="Password" placeholder="Password">

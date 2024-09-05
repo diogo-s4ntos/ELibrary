@@ -132,8 +132,18 @@ if($check_user_query) {
             box-shadow: 5px 5px 0px black;
         }
 
+        footer{
+            width: calc(100% - 24rem);
+            height: 4rem;
+            padding: 0rem 12rem;
+            box-shadow: 0px 0px 2px black;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
         @media screen and (max-width: 1025px) {
-            header {
+            header, footer{
                 width: calc(100% - 4rem);
                 padding: 0rem 2rem;
             }
@@ -153,7 +163,7 @@ if($check_user_query) {
 </head>
 <body>
     <header>
-        <h1><a href="home.php">EB</a></h1>
+        <h1><a href="home.php">EL</a></h1>
 
         <a href="livros.php" id="previous-page"></a>
         <a href="user.php" id="user-link"></a>
@@ -168,7 +178,7 @@ if($check_user_query) {
                 ?>
             </div>
             <div id="options">
-                <a href="deleteAccount.php">Apagar conta</a>
+                <a href="deleteAccount.php">Delete Account</a>
                 <a href="logout.php">Logout</a>
             </div>
         </section>
@@ -190,5 +200,10 @@ if($check_user_query) {
         ?>
         </section>
     </main>
+    
+    <footer>
+        <h1>EL</h1>
+        <p>© 2024 Diogo Santos.</p>
+    </footer>
 </body>
 </html>

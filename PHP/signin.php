@@ -44,7 +44,7 @@ if (isset($_POST['User']) && isset($_POST['Email']) && isset($_POST['Password'])
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EB - Signin</title>
+    <title>EL - Signin</title>
     <link rel="icon" href="../ASSETS/book.png">
 
     <!-- Style -->
@@ -163,7 +163,7 @@ if (isset($_POST['User']) && isset($_POST['Email']) && isset($_POST['Password'])
 </head>
 <body>
     <section>
-        <h1>EBiblioteca - Sigin</h1>
+        <h1>ELibrary - Sigin</h1>
         <form action="" method="POST">
             <input type="text" name="User" placeholder="Username*" required>
             <input type="email" name="Email" placeholder="Email*" required>

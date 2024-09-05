@@ -100,8 +100,18 @@ if(isset($_GET['id'])) {
             text-align: justify;
         }
 
+        footer{
+            width: calc(100% - 24rem);
+            height: 4rem;
+            padding: 0rem 12rem;
+            box-shadow: 0px 0px 2px black;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
         @media screen and (max-width: 1025px) {
-            header {
+            header, footer{
                 width: calc(100% - 4rem);
                 padding: 0rem 2rem;
             }
@@ -115,7 +125,7 @@ if(isset($_GET['id'])) {
 </head>
 <body>
     <header>
-        <h1><a href="home.php">EB</a></h1>
+        <h1><a href="home.php">EL</a></h1>
 
         <a href="livros.php" id="previous-page"></a>
         <a href="user.php" id="user"></a>
@@ -139,5 +149,10 @@ if(isset($_GET['id'])) {
             </div>";
         ?>
     </section>
+
+    <footer>
+        <h1>EL</h1>
+        <p>© 2024 Diogo Santos.</p>
+    </footer>
 </body>
 </html>

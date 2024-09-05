@@ -138,8 +138,18 @@ if (isset($_POST['autor']) && isset($_POST['titulo']) && isset($_POST['descricao
             box-shadow: 2px 2px 0px black;
         }
 
+        footer{
+            width: calc(100% - 24rem);
+            height: 4rem;
+            padding: 0rem 12rem;
+            box-shadow: 0px 0px 2px black;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
         @media screen and (max-width: 1025px) {
-            header {
+            header, footer{
                 width: calc(100% - 4rem);
                 padding: 0rem 2rem;
             }
@@ -153,21 +163,21 @@ if (isset($_POST['autor']) && isset($_POST['titulo']) && isset($_POST['descricao
 </head>
 <body>
     <header>
-        <h1><a href="home.php">EB</a></h1>
+        <h1><a href="home.php">EL</a></h1>
 
         <a href="livros.php" id="next-page"></a>
         <a href="user.php" id="user"></a>
     </header>
 
     <section>
-        <h2>Adicionar Livro <img src="../ASSETS/book.png" alt="Book" draggable="false"></h2>
+        <h2>Add Book <img src="../ASSETS/book.png" alt="Book" draggable="false"></h2>
         <form action="" method="POST" enctype="multipart/form-data">
-            <input type="text" name="autor" placeholder="Autor" id="autor-input" autocomplete="off" required>
-            <input type="text" name="titulo" placeholder="Título" id="titulo-input" autocomplete="off" required>
-            <textarea type="text" name="descricao" placeholder="Descrição da obra" id="descricao" autocomplete="off" required></textarea>
-            <input type="text" name="ano" placeholder="Ano de publicação" id="ano-input" minlength="4" maxlength="4" oninput="onlyNumbers(this)" autocomplete="off" required>
-            <input type="text" name="genero" placeholder="Gênero" id="genero-input" oninput="onlyLetters(this)" autocomplete="off" required>
-            <button type="submit" id='submit'>Adicionar</button>
+            <input type="text" name="autor" placeholder="Author" id="autor-input" autocomplete="off" required>
+            <input type="text" name="titulo" placeholder="Title" id="titulo-input" autocomplete="off" required>
+            <textarea type="text" name="descricao" placeholder="Description" id="descricao" autocomplete="off" required></textarea>
+            <input type="text" name="ano" placeholder="Year of publication" id="ano-input" minlength="4" maxlength="4" oninput="onlyNumbers(this)" autocomplete="off" required>
+            <input type="text" name="genero" placeholder="Genre" id="genero-input" oninput="onlyLetters(this)" autocomplete="off" required>
+            <button type="submit" id='submit'>Add</button>
         </form>
     </section>
 
@@ -181,6 +191,11 @@ if (isset($_POST['autor']) && isset($_POST['titulo']) && isset($_POST['descricao
             input.value = input.value.replace(/[^a-zA-ZÀ-ÖØ-öø-ÿ ,_-]/g, '');
         }
     </script>
+    
+    <footer>
+        <h1>EL</h1>
+        <p>© 2024 Diogo Santos.</p>
+    </footer>
 </body>
 </html>
 
