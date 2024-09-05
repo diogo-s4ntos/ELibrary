@@ -178,7 +178,7 @@ if($check_user_query) {
                 ?>
             </div>
             <div id="options">
-                <a href="deleteAccount.php">Delete Account</a>
+                <a href="deleteAccount.php">Delete account</a>
                 <a href="logout.php">Logout</a>
             </div>
         </section>
