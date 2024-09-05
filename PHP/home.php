@@ -172,11 +172,11 @@ if (isset($_POST['autor']) && isset($_POST['titulo']) && isset($_POST['descricao
     <section>
         <h2>Add Book <img src="../ASSETS/book.png" alt="Book" draggable="false"></h2>
         <form action="" method="POST" enctype="multipart/form-data">
-            <input type="text" name="autor" placeholder="Author" id="autor-input" autocomplete="off" required>
-            <input type="text" name="titulo" placeholder="Title" id="titulo-input" autocomplete="off" required>
-            <textarea type="text" name="descricao" placeholder="Description" id="descricao" autocomplete="off" required></textarea>
-            <input type="text" name="ano" placeholder="Year of publication" id="ano-input" minlength="4" maxlength="4" oninput="onlyNumbers(this)" autocomplete="off" required>
-            <input type="text" name="genero" placeholder="Book genre" id="genero-input" oninput="onlyLetters(this)" autocomplete="off" required>
+            <input type="text" name="autor" maxlength="50" placeholder="Author" autocomplete="off" required>
+            <input type="text" name="titulo" maxlength="100" placeholder="Title" autocomplete="off" required>
+            <textarea type="text" name="descricao" maxlength="2200" placeholder="Description" autocomplete="off" required></textarea>
+            <input type="text" name="ano" maxlength="4" placeholder="Year of publication" minlength="4" oninput="onlyNumbers(this)" autocomplete="off" required>
+            <input type="text" name="genero" maxlength="450" placeholder="Book genre" oninput="onlyLetters(this)" autocomplete="off" required>
             <button type="submit" id='submit'>Add</button>
         </form>
     </section>

@@ -12,9 +12,9 @@ if (isset($_POST['User']) && isset($_POST['Email']) && isset($_POST['Password'])
     $confirmPass = $mysqli->real_escape_string($_POST['confirmPass']);
 
     if (empty($username) || empty($email) || empty($password) || empty($confirmPass)) {
-        $warning_message = "Preencha todos os campos.";
+        $warning_message = "Fill in all fields.";
     } else if ($password != $confirmPass) {
-        $warning_message = "As senhas não coincidem.";
+        $warning_message = "Passwords do not match.";
     } else {
         // Verifica se o usuário já existe
         $check_user_sql = "SELECT * FROM users WHERE username = '$username'";
@@ -26,15 +26,15 @@ if (isset($_POST['User']) && isset($_POST['Email']) && isset($_POST['Password'])
         $email_exists = $check_email_query->num_rows > 0;
 
         if ($user_exists) {
-            $error_message = "Este username já está em uso. Por favor, escolha outro.";
+            $error_message = "This username is already in use. Please choose another one.";
         } else if ($email_exists) {
-            $error_message = "Este email já está em uso. Por favor, escolha outro.";
+            $error_message = "This email is already in use. Please choose another one.";
         } else {
             // Insere o novo usuário no banco de dados
             $insert_user_sql = "INSERT INTO users (username, email, password) VALUES ('$username', '$email','$password')";
             $insert_user_query = $mysqli->query($insert_user_sql) or die("Falha na conexão do código SQL: " . $mysqli->error);
 
-            $success_message = "Registro bem-sucedido! Faça o login <a href='index.php'>aqui</a>";
+            $success_message = "Registration successful! Log in <a href='index.php'>here</a>";
         }
     }
 }
@@ -165,16 +165,16 @@ if (isset($_POST['User']) && isset($_POST['Email']) && isset($_POST['Password'])
     <section>
         <h1>ELibrary - Sigin</h1>
         <form action="" method="POST">
-            <input type="text" name="User" placeholder="Username*" required>
-            <input type="email" name="Email" placeholder="Email*" required>
+            <input type="text" name="User" maxlength="25" placeholder="Username*" required>
+            <input type="email" name="Email" maxlength="50" placeholder="Email*" required>
             <div>
-                <input type="password" name="Password" id="password" placeholder="Password*" minlength="8" autocomplete="off" required>
+                <input type="password" name="Password" minlength="8" maxlength19="off" placeholder="Password*" autocomplete="off" required>
                 <input type="checkbox" id="eye" onchange="viewPassword(this)">
             </div>
-            <input type="password" name="confirmPass" id="confirmPass" placeholder="Confirm password*" minlength="8" autocomplete="off" onchange="viewPassword(this)" required>
+            <input type="password" name="confirmPass" id="confirmPass" minlength="8" maxlength="19" id="confirmPass" placeholder="Confirm password*" autocomplete="off" required>
 
-            <button type="submit">Registrar</button>
-            <a href="index.php">Tenho Conta</a>
+            <button type="submit">Register</button>
+            <a href="index.php">Login</a>
         </form>
 
         <?php

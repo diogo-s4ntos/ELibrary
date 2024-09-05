@@ -27,7 +27,7 @@ if (isset($_POST['Username']) || isset($_POST['Password'])) {
 
             header("Location: home.php");
         } else {
-            $error_message = "Erro! Utilizador ou senha inválidos.";
+            $error_message = "Error! Invalid username or password.";
         }
     }
 }
@@ -136,8 +136,8 @@ if (isset($_POST['Username']) || isset($_POST['Password'])) {
         <form action="" method="POST">
             <input type="text" name="Username" placeholder="Username">
             <input type="password" name="Password" placeholder="Password">
-            <button type="submit">Entrar</button>
-            <a href="signin.php">Criar conta</a>
+            <button type="submit">Login</button>
+            <a href="signin.php">Signin</a>
         </form>
 
         <?php
