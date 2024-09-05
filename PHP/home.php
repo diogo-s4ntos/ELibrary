@@ -181,6 +181,11 @@ if (isset($_POST['autor']) && isset($_POST['titulo']) && isset($_POST['descricao
         </form>
     </section>
 
+    <footer>
+        <h1>EL</h1>
+        <p>© 2024 Diogo Santos.</p>
+    </footer>
+
     <!-- Script -->
     <script>
         function onlyNumbers(input) {
@@ -191,11 +196,6 @@ if (isset($_POST['autor']) && isset($_POST['titulo']) && isset($_POST['descricao
             input.value = input.value.replace(/[^a-zA-ZÀ-ÖØ-öø-ÿ ,_-]/g, '');
         }
     </script>
-    
-    <footer>
-        <h1>EL</h1>
-        <p>© 2024 Diogo Santos.</p>
-    </footer>
 </body>
 </html>
 
