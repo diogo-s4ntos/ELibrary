@@ -34,7 +34,7 @@ if (isset($_POST['User']) && isset($_POST['Email']) && isset($_POST['Password'])
             $insert_user_sql = "INSERT INTO users (username, email, password) VALUES ('$username', '$email','$password')";
             $insert_user_query = $mysqli->query($insert_user_sql) or die("Falha na conexão do código SQL: " . $mysqli->error);
 
-            $success_message = "Registration successful! Log in <a href='index.php'>here</a>";
+            $success_message = "Registration successful! Log in <a href='index.php'>Here</a>";
         }
     }
 }
