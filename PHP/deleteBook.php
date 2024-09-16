@@ -11,7 +11,10 @@ if (isset($_GET['id'])) {
     $book_id = $_GET['id'];
     $user_id = $_SESSION['id'];
 
-    $sql = "DELETE FROM livros WHERE id = $book_id AND user_id = $user_id";
+    $sql = "DELETE FROM livros 
+            WHERE id = $book_id 
+            AND user_id = $user_id";
+            
     $query = $mysqli->query($sql) or die("Falha na conexão do código SQL: " . $mysqli->error);
 
     if ($mysqli->affected_rows > 0) {

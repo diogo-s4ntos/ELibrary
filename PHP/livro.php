@@ -174,6 +174,19 @@ if (isset($_POST['review'])) {
             flex-direction: column;
             gap: .8rem;
         }
+        
+        #reviews ul li h3{
+            display: flex;
+            gap: 5rem;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #deleteReview{
+            width: 1.5rem;
+            height: 1.5rem;
+            background: url(../ASSETS/trash.png) center/contain no-repeat;
+        }
 
         footer{
             width: calc(100% - 24rem);
@@ -235,12 +248,14 @@ if (isset($_POST['review'])) {
             foreach ($reviews as $review) {
                 echo "<li>";
                 if ($info['user_id'] == $review['user_id']) {
-                    echo "<h3>{$review['username']} (review owner)</h3> ";
+                    echo "<h3>{$review['username']} (review owner)
+                            <a href='deleteReview.php?review_id={$review['id']}&book_id={$info['livro_id']}' id='deleteReview'></a>
+                        </h3>";
                 } else {
                     echo "<h3>{$review['username']}</h3>";
                 }
                 echo "<p>{$review['review']}</p>
-                        </li>";
+                    </li>";
             }
             ?>
         </ul>
@@ -254,14 +269,14 @@ if (isset($_POST['review'])) {
     <!-- Script -->
     <script>
         document.querySelector('form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Previne o comportamento padrão do form
+            event.preventDefault();
             const form = this;
 
             fetch('', {
                 method: 'POST',
                 body: new FormData(form)
             }).then(() => {
-                window.location.reload(); // Faz reload da página
+                window.location.reload();
             }).catch(err => console.error('Erro:', err));
         });
     </script>
