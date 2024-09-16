@@ -177,6 +177,13 @@ if (isset($_POST['User']) && isset($_POST['Email']) && isset($_POST['Password'])
             background-color: #0000004f;
             backdrop-filter: blur(5px);
         }
+
+        @media screen and (max-width: 1025px) {
+            header{
+                width: calc(100% - 4rem);
+                padding: 0rem 2rem;
+            }
+        }
     </style>
 </head>
 <body>

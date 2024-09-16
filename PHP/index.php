@@ -131,14 +131,6 @@ if (isset($_POST['Email']) || isset($_POST['Password'])) {
             transition: .3s ease;
         }
 
-        a{
-            color: black;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
         button:hover{
             box-shadow: 5px 5px 0px black;
         }
@@ -152,6 +144,13 @@ if (isset($_POST['Email']) || isset($_POST['Password'])) {
             font-weight: bold;
             background-color: #0000004f;
             backdrop-filter: blur(5px);
+        }
+
+        @media screen and (max-width: 1025px) {
+            header{
+                width: calc(100% - 4rem);
+                padding: 0rem 2rem;
+            }
         }
     </style>
 </head>
