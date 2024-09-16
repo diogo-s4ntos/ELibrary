@@ -132,6 +132,16 @@ if($check_user_query) {
             box-shadow: 5px 5px 0px black;
         }
 
+        .last-info {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: flex;
+            gap: 5rem;
+            align-items: center;
+            justify-content: space-between;
+        }
+
         footer{
             width: calc(100% - 24rem);
             height: 4rem;

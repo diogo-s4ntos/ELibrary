@@ -15,3 +15,12 @@ CREATE TABLE livros (
     user_id INT NOT NULL,
     FOREIGN KEY(user_id) REFERENCES users(id)
 );
+
+CREATE TABLE reviews (
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    review VARCHAR(455),
+    livro_id INT NOT NULL,
+    user_id INT NOT NULL,
+    FOREIGN KEY (livro_id) REFERENCES livros(id),
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);

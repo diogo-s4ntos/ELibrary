@@ -3,12 +3,12 @@ include('conection.php');
 
 $error_message = '';
 
-if (isset($_POST['Username']) || isset($_POST['Password'])) {
-    if ((!empty($_POST['Username'])) && (!empty($_POST['Password']))) {
-        $username = $mysqli->real_escape_string($_POST['Username']);
+if (isset($_POST['Email']) || isset($_POST['Password'])) {
+    if ((!empty($_POST['Email'])) && (!empty($_POST['Password']))) {
+        $email = $mysqli->real_escape_string($_POST['Email']);
         $password = $mysqli->real_escape_string($_POST['Password']);
 
-        $sql_code = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
+        $sql_code = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
         $sql_query = $mysqli->query($sql_code) or die("Falha na conexão do código SQL: " . $mysqli->error);
 
         $quantidade = $sql_query->num_rows;
@@ -27,7 +27,7 @@ if (isset($_POST['Username']) || isset($_POST['Password'])) {
 
             header("Location: home.php");
         } else {
-            $error_message = "Error! Invalid username or password.";
+            $error_message = "Error! Invalid email or password.";
         }
     }
 }
@@ -52,9 +52,36 @@ if (isset($_POST['Username']) || isset($_POST['Password'])) {
             font-family: Arial, Helvetica, sans-serif;
         }
 
+        header{
+            width: calc(100% - 24rem);
+            height: 4rem;
+            padding: 0rem 12rem;
+            border-bottom: 2px solid black;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header nav ul{
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header h1{
+            cursor: default;
+        }
+
+        header a{
+            color: black;
+            text-decoration: none;
+        }
+
         section{
             width: calc(100% - 4rem);
-            min-height: calc(100lvh - 4rem);
+            min-height: calc(100lvh - 8rem - 2px);
             padding: 2rem;
             background: url(../ASSETS/background.png) center/cover no-repeat;
             display: flex;
@@ -84,18 +111,16 @@ if (isset($_POST['Username']) || isset($_POST['Password'])) {
             grid-template-columns: repeat(2, 1fr);
         }
 
-        form input:nth-child(1), input:nth-child(2), input:nth-child(3){
-            grid-column: span 2;
-        }
-
         form input{
+            grid-column: span 2;
             padding: 1rem;
             outline: none;
             border: none;
             font-size: .8em;
         }
 
-        button, a{
+        button{
+            grid-column: span 2;
             padding: 1rem 0rem;
             color: black;
             font-size: .8em;
@@ -114,7 +139,7 @@ if (isset($_POST['Username']) || isset($_POST['Password'])) {
             justify-content: center;
         }
 
-        button:hover, a:hover{
+        button:hover{
             box-shadow: 5px 5px 0px black;
         }
 
@@ -131,13 +156,24 @@ if (isset($_POST['Username']) || isset($_POST['Password'])) {
     </style>
 </head>
 <body>
+    <header>
+        <h1>EL</h1>
+
+        <nav>
+            <ul>
+                <li><a href="index.php">Login</a></li>
+                <li>|</li>
+                <li><a href="signin.php">Signin</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <section>
         <h1>ELibrary - Login</h1>
         <form action="" method="POST">
-            <input type="text" name="Username" placeholder="Username">
+            <input type="email" name="Email" placeholder="Email">
             <input type="password" name="Password" placeholder="Password">
             <button type="submit">Login</button>
-            <a href="signin.php">Signin</a>
         </form>
 
         <?php

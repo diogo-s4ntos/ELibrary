@@ -6,11 +6,33 @@ if(isset($_GET['id'])) {
     $book_id = $_GET['id'];
     $user_id = $_SESSION['id'];
 
-    $query = "SELECT livros.id AS livro_id, livros.titulo, livros.autor, livros.ano, livros.genero, livros.descricao FROM livros WHERE livros.id = $book_id";
+    $query = "SELECT livros.id AS livro_id, livros.titulo, livros.autor, livros.ano, livros.genero, livros.descricao, livros.user_id As user_id
+            FROM livros 
+            WHERE livros.id = $book_id";
     $check_query = $mysqli->query($query);
 
     if ($check_query) {
         $info = $check_query->fetch_assoc();
+    }
+}
+
+$reviews_query = "SELECT reviews.*, users.username 
+                FROM reviews 
+                JOIN livros ON reviews.livro_id = livros.id
+                JOIN users ON reviews.user_id = users.id 
+                WHERE reviews.livro_id = $book_id";
+$check_reviews_query = $mysqli->query($reviews_query);
+
+if($check_reviews_query) {
+    $reviews = $check_reviews_query->fetch_all(MYSQLI_ASSOC);
+}
+
+if (isset($_POST['review'])) {
+    $review = $mysqli->real_escape_string($_POST['review']);
+
+    if(!empty($_POST['review'])) {
+        $insert_database = "INSERT INTO reviews (review, livro_id, user_id) VALUES ('$review', '$book_id', '$user_id')";
+        $check_insert = $mysqli->query($insert_database) or die("Falha na conexão: " . $mysqli->error);
     }
 }
 ?>
@@ -61,12 +83,16 @@ if(isset($_GET['id'])) {
 
         section {
             width: calc(100% - 24rem);
-            min-height: calc(100lvh - 8rem - 2px);
+            height: auto;
             padding: 2rem 12rem;
             background-color: white;
             display: flex;
             flex-direction: column;
             gap: 3rem;
+        }
+
+        #reviews{
+            gap: 1rem;
         }
 
         section h1{
@@ -98,6 +124,55 @@ if(isset($_GET['id'])) {
 
         .desc{
             text-align: justify;
+        }
+
+        form{
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        form textarea{
+            width: calc(100% - 2rem);
+            min-height: 8rem;
+            padding: 1rem;
+            border: 1px solid black;
+            outline: none;
+            color: black;
+            font-size: .9em;
+            font-family: Arial, Helvetica, sans-serif;
+            resize: vertical;
+        }
+
+        form button{
+            width: fit-content;
+            padding: .5rem 1rem;
+            font-size: 1em;
+            background-color: white;
+            border: 2px solid black;
+            transition: .3s ease;
+            cursor: pointer;
+            align-self: end;
+        }
+
+        form button:hover{
+            box-shadow: 2px 2px 0px black;
+        }
+
+        #reviews ul{
+            display: flex;
+            flex-direction: column;
+            gap: .8rem;
+            list-style: none;
+        }
+
+        #reviews ul li{
+            width: fit-content;
+            padding: 1rem;
+            border: 1px solid black;
+            display: flex;
+            flex-direction: column;
+            gap: .8rem;
         }
 
         footer{
@@ -149,10 +224,46 @@ if(isset($_GET['id'])) {
             </div>";
         ?>
     </section>
+    <section id="reviews">
+        <h2>Reviews</h2>
+        <form action="" method="POST">
+            <textarea name="review" placeholder="Your review..."></textarea>
+            <button type="submit">Submit</button>
+        </form>
+        <ul>
+            <?php
+            foreach ($reviews as $review) {
+                echo "<li>";
+                if ($info['user_id'] == $review['user_id']) {
+                    echo "<h3>{$review['username']} (review owner)</h3> ";
+                } else {
+                    echo "<h3>{$review['username']}</h3>";
+                }
+                echo "<p>{$review['review']}</p>
+                        </li>";
+            }
+            ?>
+        </ul>
+    </section>
 
     <footer>
         <h1>EL</h1>
         <p>© 2024 Diogo Santos.</p>
     </footer>
+
+    <!-- Script -->
+    <script>
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Previne o comportamento padrão do form
+            const form = this;
+
+            fetch('', {
+                method: 'POST',
+                body: new FormData(form)
+            }).then(() => {
+                window.location.reload(); // Faz reload da página
+            }).catch(err => console.error('Erro:', err));
+        });
+    </script>
 </body>
 </html>

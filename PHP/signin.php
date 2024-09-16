@@ -58,10 +58,37 @@ if (isset($_POST['User']) && isset($_POST['Email']) && isset($_POST['Password'])
             font-size: 16px;
             font-family: Arial, Helvetica, sans-serif;
         }
+        
+        header{
+            width: calc(100% - 24rem);
+            height: 4rem;
+            padding: 0rem 12rem;
+            border-bottom: 2px solid black;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header nav ul{
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header h1{
+            cursor: default;
+        }
+
+        header a{
+            color: black;
+            text-decoration: none;
+        }
 
         section {
             width: calc(100% - 4rem);
-            min-height: calc(100lvh - 4rem);
+            min-height: calc(100lvh - 8rem - 2px);
             padding: 2rem;
             background: url(../ASSETS/background.png) center/cover no-repeat;
             display: flex;
@@ -90,12 +117,9 @@ if (isset($_POST['User']) && isset($_POST['Email']) && isset($_POST['Password'])
             gap: 1rem;
             grid-template-columns: repeat(2, 1fr);
         }
-
-        form input:nth-child(1), input:nth-child(2), #confirmPass, div{
-            grid-column: span 2;
-        }
-
+        
         form div{
+            grid-column: span 2;
             position: relative;
             display: flex;
             align-items: center;
@@ -107,13 +131,15 @@ if (isset($_POST['User']) && isset($_POST['Email']) && isset($_POST['Password'])
         }
 
         form input {
+            grid-column: span 2;
             padding: 1rem;
             outline: none;
             border: none;
             font-size: .8em;
         }
 
-        button, a {
+        button {
+            grid-column: span 2;
             padding: 1rem 0rem;
             border: none;
             background-color: white;
@@ -122,15 +148,7 @@ if (isset($_POST['User']) && isset($_POST['Email']) && isset($_POST['Password'])
             font-size: .8em;
         }
 
-        a {
-            color: black;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        button:hover, a:hover {
+        button:hover {
             box-shadow: 5px 5px 0px black;
         }
 
@@ -162,19 +180,30 @@ if (isset($_POST['User']) && isset($_POST['Email']) && isset($_POST['Password'])
     </style>
 </head>
 <body>
+    <header>
+        <h1>EL</h1>
+
+        <nav>
+            <ul>
+                <li><a href="index.php">Login</a></li>
+                <li>|</li>
+                <li><a href="signin.php">Signin</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <section>
-        <h1>ELibrary - Sigin</h1>
+        <h1>ELibrary - Signin</h1>
         <form action="" method="POST">
             <input type="text" name="User" maxlength="25" placeholder="Username*" required>
             <input type="email" name="Email" maxlength="50" placeholder="Email*" required>
             <div>
-                <input type="password" name="Password" minlength="8" maxlength19="off" placeholder="Password*" autocomplete="off" required>
+                <input type="password" name="Password" id="password" minlength="8" maxlength19="off" placeholder="Password*" autocomplete="off" required>
                 <input type="checkbox" id="eye" onchange="viewPassword(this)">
             </div>
             <input type="password" name="confirmPass" id="confirmPass" minlength="8" maxlength="19" id="confirmPass" placeholder="Confirm password*" autocomplete="off" required>
 
             <button type="submit">Register</button>
-            <a href="index.php">Login</a>
         </form>
 
         <?php
