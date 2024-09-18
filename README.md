@@ -13,4 +13,4 @@ A webpage where you can register and add books that you have read, along with a 
 <li>SQL</li>
 
 # Link 
-<li>Site URL: <a href="http://ebiblioteca.myartsonline.com/index.php">Click Here</a></li>
+<li>Site URL: <a href="#">Click Here</a></li>
