@@ -1,5 +1,5 @@
 # ELibrary
-A webpage where you can register and add books that you have read, along with a description of what you felt and thought about the book. You can also see other people's opinions about the same book or other books. In the future, I plan to add some new features, such as commenting on other people's book descriptions, editing your own description, and a few more things. (The website doesn't have SSL certification yet).
+You can register and add books that you have read, along with your review. You can also see other people's reviews about other books, comment in reviews and delete your reviews/comments. In the future, I plan to add some new features, such as editing your own review, and a few more things.
 
 # Screenshot
 ![Captura de ecrã 2024-09-05 225743](https://github.com/user-attachments/assets/e7991e0d-b8de-482c-94b2-130e9a5122b1)
@@ -13,4 +13,4 @@ A webpage where you can register and add books that you have read, along with a 
 <li>SQL</li>
 
 # Link 
-<li>Site URL: <a href="#">Click Here</a></li>
+<li>Site URL: <a href="#">Soon</a></li>
