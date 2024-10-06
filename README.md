@@ -12,5 +12,5 @@ You can register and add books that you've read, along with your review. You can
 <li>PHP</li>
 <li>SQL</li>
 
-# Link 
-<li>Site URL: <a href="#">Soon</a></li>
+// # Link 
+// <li>Site URL: <a href="#">Soon</a></li>
