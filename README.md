@@ -11,6 +11,3 @@ You can register and add books that you've read, along with your review. You can
 <li>JAVASCRIPT</li>
 <li>PHP</li>
 <li>SQL</li>
-
-// # Link 
-// <li>Site URL: <a href="#">Soon</a></li>
